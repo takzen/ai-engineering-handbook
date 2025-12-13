@@ -1,0 +1,25 @@
+# Ignoruj wirtualne środowisko
+venv/
+.venv/
+env/
+.env
+
+# Ignoruj dane (zakładając, że trzymasz je w folderze data)
+data/
+*.csv
+*.xlsx
+*.json
+*.pkl
+*.joblib
+
+# Ignoruj cache Pythona
+__pycache__/
+*.pyc
+
+# Ignoruj pliki systemowe i VS Code
+.vscode/
+.DS_Store
+.ipynb_checkpoints
+
+
+data/
