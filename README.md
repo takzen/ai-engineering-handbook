@@ -1,6 +1,6 @@
 # 📘 Podręcznik Inżynierii AI & Implementacje Referencyjne
 
-Kompleksowy zbiór algorytmów zaimplementowanych od podstaw ("from first principles"), pokrywający pełne spektrum Inżynierii Uczenia Maszynowego — od Analizy Statystycznej i Klasycznego ML, aż po Duże Modele Językowe (LLM) i architektury Computer Vision.
+Kompleksowy zbiór algorytmów zaimplementowanych od podstaw ("from first principles"), pokrywający pełne spektrum Inżynierii Uczenia Maszynowego: od Analizy Statystycznej i Klasycznego ML, aż po Duże Modele Językowe (LLM) i architektury Computer Vision.
 
 ### 🎯 Cel Repozytorium
 
