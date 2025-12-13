@@ -198,7 +198,7 @@ Zalecane dla inżynierów budujących własne środowisko.
     uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
 
     # 2. Reszta narzędzi (Pandas, Scikit-Learn, SHAP, etc.)
-    uv pip install numpy pandas matplotlib seaborn scikit-learn scipy statsmodels shap xgboost mlxtend gym gymnasium notebook ipykernel networkx
+    uv pip install numpy pandas matplotlib seaborn scikit-learn scipy statsmodels shap xgboost mlxtend gym gymnasium notebook ipykernel networkx optuna ipywidgets plotly
     ```
 
     _(Uwaga: Wersję `cu130` w linku PyTorcha możesz dostosować do sterowników swojej karty graficznej)._
