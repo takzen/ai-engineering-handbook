@@ -157,20 +157,51 @@ Projekt oparty na standardowym stacku Data Science:
 - **SciPy** (Testy statystyczne)
 - **PyTorch** (Deep Learning Framework)
 
-## 🚀 Jak uruchomić?
+## 🚀 Jak używać tego podręcznika?
 
-1.  Sklonuj repozytorium:
+Masz dwie możliwości uruchomienia kodu: szybką (w chmurze) i profesjonalną (lokalnie).
+
+### ☁️ Opcja 1: Google Colab (Bez instalacji)
+
+Najszybszy sposób na naukę. Każdy notatnik w tym repozytorium posiada przycisk **"Open in Colab"** na samej górze.
+
+1.  Otwórz wybrany plik `.ipynb` na liście plików.
+2.  Kliknij przycisk <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" style="vertical-align: middle">.
+3.  Kod uruchomi się natychmiast na darmowych GPU od Google.
+
+### 💻 Opcja 2: Lokalnie (VS Code + uv)
+
+Zalecane dla inżynierów budujących własne środowisko.
+
+1.  **Sklonuj repozytorium:**
+
     ```bash
-    git clone https://github.com/takzen/ai-engineering-handbook
+    git clone https://github.com/takzen/ai-engineering-handbook.git
+    cd ai-engineering-handbook
     ```
-2.  Zainstaluj wymagane biblioteki:
+
+2.  **Stwórz i aktywuj środowisko wirtualne:**
+
     ```bash
-    pip install pandas numpy scikit-learn matplotlib seaborn scipy torch
+    uv venv .venv
+
+    # Windows:
+    .\.venv\Scripts\activate
+    # Linux/Mac:
+    source .venv/bin/activate
     ```
-3.  Uruchom Jupyter Notebook:
+
+3.  **Zainstaluj zależności (PyTorch + ML Stack):**
+
     ```bash
-    jupyter notebook
+    # 1. PyTorch (Wersja z obsługą CUDA: najnowsza stabilna (12.12.2025) jest cu130)
+    uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
+
+    # 2. Reszta narzędzi (Pandas, Scikit-Learn, SHAP, etc.)
+    uv pip install numpy pandas matplotlib seaborn scikit-learn scipy statsmodels shap xgboost mlxtend gym gymnasium notebook ipykernel
     ```
+
+    _(Uwaga: Wersję `cu130` w linku PyTorcha możesz dostosować do sterowników swojej karty graficznej)._
 
 ---
 
