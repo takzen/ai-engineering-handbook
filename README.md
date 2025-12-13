@@ -161,7 +161,7 @@ Projekt oparty na standardowym stacku Data Science:
 
 1.  Sklonuj repozytorium:
     ```bash
-    git clone https://github.com/takzen/ml-fundamentals-journey.git
+    git clone https://github.com/takzen/ai-engineering-handbook
     ```
 2.  Zainstaluj wymagane biblioteki:
     ```bash
