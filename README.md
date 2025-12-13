@@ -183,7 +183,7 @@ Zalecane dla inżynierów budujących własne środowisko.
 2.  **Stwórz i aktywuj środowisko wirtualne:**
 
     ```bash
-    uv venv .venv
+    uv venv
 
     # Windows:
     .\.venv\Scripts\activate
