@@ -8,12 +8,14 @@ Ten projekt służy jako **referencja techniczna** oraz baza wiedzy demonstrują
 
 ### 🔑 Kluczowe Implementacje (Od Zera)
 
-- **Architektura LLM:** Pełna implementacja Bloku Transformera (Self-Attention, LayerNorm, Residuals) w PyTorch + Positional Encoding.
-- **Optymalizacja:** Matematyczna implementacja LoRA (Low-Rank Adaptation) do fine-tuningu + Kwantyzacja (FP32 → INT8).
+- **Architektura LLM:** Pełna implementacja Bloku Transformera (Self-Attention, LayerNorm, Residuals) w PyTorch + Positional Encoding + Flash Attention & KV Cache.
+- **Optymalizacja:** Matematyczna implementacja LoRA (Low-Rank Adaptation) do fine-tuningu + Kwantyzacja (FP32 → INT8) + Product Quantization dla baz wektorowych.
 - **Generative AI:** Sieci GAN, VAE (z wykorzystaniem Reparameterization Trick) oraz Diffusion Models (DDPM).
 - **Computer Vision:** Ręczna implementacja mechanizmów IoU (Intersection over Union), NMS (Non-Max Suppression) oraz Vision Transformers (ViT).
 - **ML Ops:** Niestandardowe Estymatory (Custom Estimators) i Pipeline'y Scikit-Learn do produkcyjnego przetwarzania danych.
 - **Advanced ML:** Metric Learning (Siamese Networks), Graph Neural Networks, Contrastive Learning, Data Drift Detection.
+- **Agenci AI:** LangChain ReAct, Prompt Engineering (CoT/ToT), RAG Evaluation, Speculative Decoding.
+- **Next-Gen Architectures:** Mamba (State Space Models), Mixture of Experts (MoE), Liquid Neural Networks, Meta-Learning (MAML).
 
 ---
 
@@ -88,6 +90,30 @@ Mechanizmy stojące za modelami takimi jak GPT.
 | **56_Positional_Encoding_Transformer.ipynb** | GPS Transformera               | **Positional Encoding**, sinusy i cosinusy, kolejność w sekwencjach                   |
 | **64_Knowledge_Distillation.ipynb**          | Kompresja modeli               | **Teacher-Student**, Soft Labels, Temperature, transfer wiedzy                        |
 | **68_RLHF_PPO_ChatGPT_Alignment.ipynb**      | Alignment LLM                  | **PPO**, RLHF, uczenie przez feedback ludzki, jak powstał ChatGPT                     |
+
+### 🚀 Optymalizacja LLM i Next-Gen Architectures
+
+Nowoczesne architektury i techniki optymalizacji dla produkcyjnych systemów AI.
+
+| Plik                                    | Temat                      | Kluczowe pojęcia                                                           |
+| :-------------------------------------- | :------------------------- | :------------------------------------------------------------------------- |
+| **71_LLM_Optimization_KV_Cache.ipynb**  | Flash Attention & KV Cache | **KV Cache**, Flash Attention, Tiling, optymalizacja O(N²), pamięć GPU     |
+| **72_Mamba_State_Space_Models.ipynb**   | State Space Models         | **Mamba**, SSM, dyskretyzacja równań różniczkowych, złożoność liniowa      |
+| **73_Mixture_of_Experts_MoE.ipynb**     | Mixture of Experts         | **MoE**, Gating Network, Router, architektura GPT-4, sparse models         |
+| **74_Liquid_Neural_Networks_LFC.ipynb** | Liquid Neural Networks     | **LFC**, adaptive weights, równania różniczkowe, robotyka, drony           |
+| **75_Meta_Learning_MAML.ipynb**         | Meta-Learning              | **MAML**, Model-Agnostic Meta-Learning, few-shot learning, fast adaptation |
+
+### 🤖 Agenci AI i LLM Engineering
+
+Najgorętszy temat 2025 roku. AI, które "działa", a nie tylko "gada".
+
+| Plik                                                 | Temat                        | Kluczowe pojęcia                                                        |
+| :--------------------------------------------------- | :--------------------------- | :---------------------------------------------------------------------- |
+| **76_LangChain_ReAct_Agent.ipynb**                   | Agenci AI                    | **ReAct**, Reason+Act, pętla agenta, narzędzia, akcje                   |
+| **77_Prompt_Engineering_CoT_ToT.ipynb**              | Prompt Engineering           | **Chain of Thought**, Tree of Thoughts, reasoning, myślenie na głos     |
+| **78_RAG_Evaluation_RAGAS.ipynb**                    | Ewaluacja RAG                | **RAGAS**, Faithfulness, Answer Relevance, metryki jakości RAG          |
+| **79_Vector_Compression_Product_Quantization.ipynb** | Vector Database Optimization | **Product Quantization**, IVF-PQ, FAISS, kompresja wektorów, skalowanie |
+| **80_Speculative_Decoding.ipynb**                    | Przyspieszanie Inferencji    | **Speculative Decoding**, draft model, verification, 2-3x speedup       |
 
 ### 🧮 Matematyka i Optymalizacja
 
@@ -252,10 +278,11 @@ Zalecane dla inżynierów budujących własne środowisko.
 
 ## 📊 Statystyki Projektu
 
-- **70 notatników** pokrywających pełne spektrum AI/ML
+- **80 notatników** pokrywających pełne spektrum AI/ML
 - **Od podstaw matematycznych** do produkcyjnych implementacji
-- **Ponad 20 kategorii tematycznych** (EDA, Classical ML, Deep Learning, LLM, Computer Vision, RL, MLOps)
-- **Implementacje referencyjne** algorytmów używanych w produkcji (Transformers, Diffusion, HNSW, Kalman, PPO)
+- **Ponad 25 kategorii tematycznych** (EDA, Classical ML, Deep Learning, LLM, Computer Vision, RL, Agenci AI, MLOps)
+- **Implementacje referencyjne** algorytmów używanych w produkcji (Transformers, Diffusion, HNSW, Kalman, PPO, Mamba, MoE)
+- **Najnowsze architektury 2024/2025:** Flash Attention, Mamba SSM, Mixture of Experts, Liquid Networks, Meta-Learning
 
 ---
 
