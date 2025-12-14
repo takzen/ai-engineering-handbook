@@ -8,11 +8,12 @@ Ten projekt służy jako **referencja techniczna** oraz baza wiedzy demonstrują
 
 ### 🔑 Kluczowe Implementacje (Od Zera)
 
-- **Architektura LLM:** Pełna implementacja Bloku Transformera (Self-Attention, LayerNorm, Residuals) w PyTorch.
-- **Optymalizacja:** Matematyczna implementacja LoRA (Low-Rank Adaptation) do fine-tuningu.
-- **Generative AI:** Sieci GAN i VAE (z wykorzystaniem Reparameterization Trick).
-- **Computer Vision:** Ręczna implementacja mechanizmów IoU (Intersection over Union) oraz NMS (Non-Max Suppression) dla detekcji obiektów.
+- **Architektura LLM:** Pełna implementacja Bloku Transformera (Self-Attention, LayerNorm, Residuals) w PyTorch + Positional Encoding.
+- **Optymalizacja:** Matematyczna implementacja LoRA (Low-Rank Adaptation) do fine-tuningu + Kwantyzacja (FP32 → INT8).
+- **Generative AI:** Sieci GAN, VAE (z wykorzystaniem Reparameterization Trick) oraz Diffusion Models (DDPM).
+- **Computer Vision:** Ręczna implementacja mechanizmów IoU (Intersection over Union), NMS (Non-Max Suppression) oraz Vision Transformers (ViT).
 - **ML Ops:** Niestandardowe Estymatory (Custom Estimators) i Pipeline'y Scikit-Learn do produkcyjnego przetwarzania danych.
+- **Advanced ML:** Metric Learning (Siamese Networks), Graph Neural Networks, Contrastive Learning, Data Drift Detection.
 
 ---
 
@@ -44,20 +45,21 @@ Przygotowanie "brudnych" danych, aby algorytmy mogły z nich korzystać.
 
 Algorytmy uczenia z nadzorem (Supervised) i bez nadzoru (Unsupervised).
 
-| Plik                                          | Temat                   | Kluczowe pojęcia                                                 |
-| :-------------------------------------------- | :---------------------- | :--------------------------------------------------------------- |
-| **06_Naive_Bayes_Spam.ipynb**                 | Filtr antyspamowy (NLP) | **Naive Bayes**, Bag of Words, prawdopodobieństwo warunkowe      |
-| **08_Overfitting_Underfitting.ipynb**         | Diagnoza błędów modelu  | Przeuczenie vs Niedouczenie, wielomiany, generalizacja           |
-| **09_K_Means_Clustering.ipynb**               | Segmentacja klientów    | **Unsupervised Learning**, K-Means, Metoda Łokcia (Elbow Method) |
-| **10_Decision_Trees.ipynb**                   | Drzewa Decyzyjne        | White-Box Models, wizualizacja decyzji, Feature Importance       |
-| **14_Random_Forest_Ensemble.ipynb**           | Ensemble Learning       | **Random Forest**, Bagging, agregacja predykcji, stabilność      |
-| **19_Cross_Validation.ipynb**                 | Walidacja modeli        | **K-Fold**, walidacja krzyżowa, unikanie overfittingu            |
-| **27_Hyperparameter_Tuning_GridSearch.ipynb** | Optymalizacja modeli    | **Grid Search**, RandomizedSearch, dobór parametrów              |
-| **34_Regularization_Lasso_Ridge.ipynb**       | Regularyzacja           | **Lasso (L1)**, Ridge (L2), ElasticNet, kara za złożoność        |
-| **36_Market_Basket_Apriori.ipynb**            | Analiza Koszykowa       | **Apriori**, Support, Confidence, Lift, reguły asocjacyjne       |
-| **37_Gradient_Boosting_XGBoost.ipynb**        | Gradient Boosting       | **XGBoost**, LightGBM, uczenie sekwencyjne, boosting             |
-| **47_SVM_Kernel_Trick.ipynb**                 | Support Vector Machines | **SVM**, Kernel Trick, hyperplanes, separowalność liniowa        |
-| **51_Recommender_Systems_SVD.ipynb**          | Systemy Rekomendacyjne  | **SVD**, Matrix Factorization, collaborative filtering           |
+| Plik                                          | Temat                    | Kluczowe pojęcia                                                      |
+| :-------------------------------------------- | :----------------------- | :-------------------------------------------------------------------- |
+| **06_Naive_Bayes_Spam.ipynb**                 | Filtr antyspamowy (NLP)  | **Naive Bayes**, Bag of Words, prawdopodobieństwo warunkowe           |
+| **08_Overfitting_Underfitting.ipynb**         | Diagnoza błędów modelu   | Przeuczenie vs Niedouczenie, wielomiany, generalizacja                |
+| **09_K_Means_Clustering.ipynb**               | Segmentacja klientów     | **Unsupervised Learning**, K-Means, Metoda Łokcia (Elbow Method)      |
+| **10_Decision_Trees.ipynb**                   | Drzewa Decyzyjne         | White-Box Models, wizualizacja decyzji, Feature Importance            |
+| **14_Random_Forest_Ensemble.ipynb**           | Ensemble Learning        | **Random Forest**, Bagging, agregacja predykcji, stabilność           |
+| **19_Cross_Validation.ipynb**                 | Walidacja modeli         | **K-Fold**, walidacja krzyżowa, unikanie overfittingu                 |
+| **27_Hyperparameter_Tuning_GridSearch.ipynb** | Optymalizacja modeli     | **Grid Search**, RandomizedSearch, dobór parametrów                   |
+| **34_Regularization_Lasso_Ridge.ipynb**       | Regularyzacja            | **Lasso (L1)**, Ridge (L2), ElasticNet, kara za złożoność             |
+| **36_Market_Basket_Apriori.ipynb**            | Analiza Koszykowa        | **Apriori**, Support, Confidence, Lift, reguły asocjacyjne            |
+| **37_Gradient_Boosting_XGBoost.ipynb**        | Gradient Boosting        | **XGBoost**, LightGBM, uczenie sekwencyjne, boosting                  |
+| **47_SVM_Kernel_Trick.ipynb**                 | Support Vector Machines  | **SVM**, Kernel Trick, hyperplanes, separowalność liniowa             |
+| **51_Recommender_Systems_SVD.ipynb**          | Systemy Rekomendacyjne   | **SVD**, Matrix Factorization, collaborative filtering                |
+| **60_Bayesian_Optimization_Optuna.ipynb**     | Optymalizacja Bayesowska | **Optuna**, Bayesian Optimization, inteligentny dobór hiperparametrów |
 
 ### 📏 Ewaluacja Modeli
 
@@ -71,18 +73,21 @@ Jak sprawdzić, czy model naprawdę działa?
 
 Mechanizmy stojące za modelami takimi jak GPT.
 
-| Plik                                        | Temat                          | Kluczowe pojęcia                                                                      |
-| :------------------------------------------ | :----------------------------- | :------------------------------------------------------------------------------------ |
-| **05_Top_p_Top_k.ipynb**                    | Sterowanie generowaniem tekstu | Sampling, probabilistyka wyboru słów, kreatywność AI                                  |
-| **11_Embeddings_Vector_Space.ipynb**        | Wektory słów                   | **Embeddings**, przestrzeń wektorowa, algebra na słowach (Król - Mężczyzna + Kobieta) |
-| **12_LLM_Temperature.ipynb**                | Parametr Temperatury           | Softmax, Logits, sterowanie halucynacjami i pewnością modelu                          |
-| **23_Tokenization_GPT.ipynb**               | Tokenizacja                    | **Byte Pair Encoding**, subword tokenization, problem z liczeniem liter               |
-| **24_Self_Attention_Mechanism.ipynb**       | Mechanizm Uwagi                | **Transformer**, Query-Key-Value, kontekst w zdaniach                                 |
-| **18_Cosine_Similarity_Search.ipynb**       | Podobieństwo wektorów          | **Cosine Similarity**, kąt vs odległość, Semantic Search                              |
-| **20_RAG_Architecture_Simulation.ipynb**    | Retrieval Augmented Generation | **RAG**, wyszukiwanie w bazie wiedzy, pipeline z embeddingami                         |
-| **26_RAG_Chunking_Strategies.ipynb**        | Przygotowanie dokumentów       | **Chunking**, Fixed-size, Recursive, Overlap, Windowing                               |
-| **46_Transformer_Block_From_Scratch.ipynb** | Blok Transformera              | **Transformer Block**, LayerNorm, Residual Connections, Feed Forward                  |
-| **55_LoRA_Fine_Tuning_Math.ipynb**          | Fine-tuning LLM                | **LoRA**, Low-Rank Adaptation, efektywne douczanie modeli                             |
+| Plik                                         | Temat                          | Kluczowe pojęcia                                                                      |
+| :------------------------------------------- | :----------------------------- | :------------------------------------------------------------------------------------ |
+| **05_Top_p_Top_k.ipynb**                     | Sterowanie generowaniem tekstu | Sampling, probabilistyka wyboru słów, kreatywność AI                                  |
+| **11_Embeddings_Vector_Space.ipynb**         | Wektory słów                   | **Embeddings**, przestrzeń wektorowa, algebra na słowach (Król - Mężczyzna + Kobieta) |
+| **12_LLM_Temperature.ipynb**                 | Parametr Temperatury           | Softmax, Logits, sterowanie halucynacjami i pewnością modelu                          |
+| **23_Tokenization_GPT.ipynb**                | Tokenizacja                    | **Byte Pair Encoding**, subword tokenization, problem z liczeniem liter               |
+| **24_Self_Attention_Mechanism.ipynb**        | Mechanizm Uwagi                | **Transformer**, Query-Key-Value, kontekst w zdaniach                                 |
+| **18_Cosine_Similarity_Search.ipynb**        | Podobieństwo wektorów          | **Cosine Similarity**, kąt vs odległość, Semantic Search                              |
+| **20_RAG_Architecture_Simulation.ipynb**     | Retrieval Augmented Generation | **RAG**, wyszukiwanie w bazie wiedzy, pipeline z embeddingami                         |
+| **26_RAG_Chunking_Strategies.ipynb**         | Przygotowanie dokumentów       | **Chunking**, Fixed-size, Recursive, Overlap, Windowing                               |
+| **46_Transformer_Block_From_Scratch.ipynb**  | Blok Transformera              | **Transformer Block**, LayerNorm, Residual Connections, Feed Forward                  |
+| **55_LoRA_Fine_Tuning_Math.ipynb**           | Fine-tuning LLM                | **LoRA**, Low-Rank Adaptation, efektywne douczanie modeli                             |
+| **56_Positional_Encoding_Transformer.ipynb** | GPS Transformera               | **Positional Encoding**, sinusy i cosinusy, kolejność w sekwencjach                   |
+| **64_Knowledge_Distillation.ipynb**          | Kompresja modeli               | **Teacher-Student**, Soft Labels, Temperature, transfer wiedzy                        |
+| **68_RLHF_PPO_ChatGPT_Alignment.ipynb**      | Alignment LLM                  | **PPO**, RLHF, uczenie przez feedback ludzki, jak powstał ChatGPT                     |
 
 ### 🧮 Matematyka i Optymalizacja
 
@@ -98,20 +103,22 @@ Jak maszyny się uczą pod maską?
 
 Od pojedynczego neuronu do głębokich sieci.
 
-| Plik                                            | Temat                           | Kluczowe pojęcia                                        |
-| :---------------------------------------------- | :------------------------------ | :------------------------------------------------------ |
-| **16_Neural_Network_Perceptron.ipynb**          | Pierwszy neuron                 | **Perceptron**, wagi, bias, funkcja aktywacji           |
-| **21_MLP_Neural_Network_XOR.ipynb**             | Sieci wielowarstwowe            | **Multi-Layer Perceptron**, warstwy ukryte, XOR problem |
-| **22_Activation_Functions.ipynb**               | Funkcje aktywacji               | **ReLU**, Sigmoid, Softmax, nieliniowość                |
-| **32_PyTorch_Tensors_Autograd.ipynb**           | Podstawy PyTorch                | **Tensors**, Autograd, automatyczne różniczkowanie      |
-| **33_PyTorch_Neural_Network_Class.ipynb**       | Budowa sieci w PyTorch          | **nn.Module**, forward pass, OOP w deep learningu       |
-| **38_CNN_Computer_Vision.ipynb**                | Sieci Konwolucyjne              | **CNN**, Conv2d, MaxPool, filtry, Computer Vision       |
-| **39_RNN_LSTM_Sequence_Models.ipynb**           | Sieci Rekurencyjne              | **RNN**, LSTM, przetwarzanie sekwencji, pamięć          |
-| **40_Autoencoder_Anomaly_Detection.ipynb**      | Detekcja Anomalii               | **Autoencoder**, kompresja, detekcja outlierów          |
-| **41_GAN_Generative_Adversarial_Network.ipynb** | Generative Adversarial Networks | **GAN**, Generator, Dyskryminator, generowanie danych   |
-| **43_VAE_Variational_Autoencoder.ipynb**        | Variational Autoencoder         | **VAE**, Latent Space, KL Divergence, generowanie       |
-| **49_Object_Detection_IoU.ipynb**               | Detekcja Obiektów               | **IoU**, Intersection over Union, bounding boxes        |
-| **50_UNet_Image_Segmentation.ipynb**            | Segmentacja Obrazu              | **U-Net**, segmentacja pikselowa, architektura U        |
+| Plik                                            | Temat                           | Kluczowe pojęcia                                                 |
+| :---------------------------------------------- | :------------------------------ | :--------------------------------------------------------------- |
+| **16_Neural_Network_Perceptron.ipynb**          | Pierwszy neuron                 | **Perceptron**, wagi, bias, funkcja aktywacji                    |
+| **21_MLP_Neural_Network_XOR.ipynb**             | Sieci wielowarstwowe            | **Multi-Layer Perceptron**, warstwy ukryte, XOR problem          |
+| **22_Activation_Functions.ipynb**               | Funkcje aktywacji               | **ReLU**, Sigmoid, Softmax, nieliniowość                         |
+| **32_PyTorch_Tensors_Autograd.ipynb**           | Podstawy PyTorch                | **Tensors**, Autograd, automatyczne różniczkowanie               |
+| **33_PyTorch_Neural_Network_Class.ipynb**       | Budowa sieci w PyTorch          | **nn.Module**, forward pass, OOP w deep learningu                |
+| **38_CNN_Computer_Vision.ipynb**                | Sieci Konwolucyjne              | **CNN**, Conv2d, MaxPool, filtry, Computer Vision                |
+| **39_RNN_LSTM_Sequence_Models.ipynb**           | Sieci Rekurencyjne              | **RNN**, LSTM, przetwarzanie sekwencji, pamięć                   |
+| **40_Autoencoder_Anomaly_Detection.ipynb**      | Detekcja Anomalii               | **Autoencoder**, kompresja, detekcja outlierów                   |
+| **41_GAN_Generative_Adversarial_Network.ipynb** | Generative Adversarial Networks | **GAN**, Generator, Dyskryminator, generowanie danych            |
+| **43_VAE_Variational_Autoencoder.ipynb**        | Variational Autoencoder         | **VAE**, Latent Space, KL Divergence, generowanie                |
+| **49_Object_Detection_IoU.ipynb**               | Detekcja Obiektów               | **IoU**, Intersection over Union, bounding boxes                 |
+| **50_UNet_Image_Segmentation.ipynb**            | Segmentacja Obrazu              | **U-Net**, segmentacja pikselowa, architektura U                 |
+| **61_Normalization_Layers_BN_vs_LN.ipynb**      | Warstwy Normalizacji            | **Batch Norm**, Layer Norm, Instance Norm, stabilizacja treningu |
+| **70_Vision_Transformer_ViT.ipynb**             | Vision Transformers             | **ViT**, Patches, koniec ery CNN, Self-Attention w obrazach      |
 
 ### 🎮 Reinforcement Learning
 
@@ -126,23 +133,60 @@ Uczenie przez nagrody i kary.
 
 Specjalistyczne techniki i podejścia.
 
-| Plik                                      | Temat                  | Kluczowe pojęcia                                            |
-| :---------------------------------------- | :--------------------- | :---------------------------------------------------------- |
-| **52_Genetic_Algorithms_Evolution.ipynb** | Algorytmy Genetyczne   | **Evolutionary Algorithms**, krzyżowanie, mutacja, selekcja |
-| **53_Monte_Carlo_Simulation.ipynb**       | Symulacje Monte Carlo  | Symulacje probabilistyczne, analiza ryzyka                  |
-| **54_FFT_Signal_Processing.ipynb**        | Przetwarzanie Sygnałów | **FFT**, Transformata Fouriera, analiza częstotliwości      |
+| Plik                                       | Temat                  | Kluczowe pojęcia                                                     |
+| :----------------------------------------- | :--------------------- | :------------------------------------------------------------------- |
+| **52_Genetic_Algorithms_Evolution.ipynb**  | Algorytmy Genetyczne   | **Evolutionary Algorithms**, krzyżowanie, mutacja, selekcja          |
+| **53_Monte_Carlo_Simulation.ipynb**        | Symulacje Monte Carlo  | Symulacje probabilistyczne, analiza ryzyka                           |
+| **54_FFT_Signal_Processing.ipynb**         | Przetwarzanie Sygnałów | **FFT**, Transformata Fouriera, analiza częstotliwości               |
+| **59_Model_Quantization_INT8.ipynb**       | Kwantyzacja Modeli     | **Quantization**, FP32→INT8, kompresja, odpalanie AI na edge devices |
+| **62_Time_Series_Decomposition_STL.ipynb** | Dekompozycja Szeregów  | **STL**, Trend, Sezonowość, Reszta, analiza biznesowa                |
 
-### 💻 Inżynieria i Deployment
+### 🎨 Generative AI - Zaawansowane
 
-Praktyczne umiejętności produkcyjne.
+Modele generatywne nowej generacji.
 
-| Plik                                         | Temat               | Kluczowe pojęcia                                               |
-| :------------------------------------------- | :------------------ | :------------------------------------------------------------- |
-| **25_Model_Persistence_Pickle_Joblib.ipynb** | Zapisywanie modeli  | **Pickle**, Joblib, serializacja obiektów                      |
-| **30_Sklearn_Pipelines.ipynb**               | Rurociągi ML        | **Pipeline**, StandardScaler, data leakage prevention          |
-| **31_Custom_Transformers.ipynb**             | Własne transformery | **BaseEstimator**, TransformerMixin, fit-transform pattern     |
-| **28_Python_Dataclasses_for_ML.ipynb**       | Konfiguracja modeli | **Dataclasses**, structured configs, TrainingArguments pattern |
-| **29_OOP_Classmethod_Staticmethod.ipynb**    | Wzorce projektowe   | **@classmethod**, @staticmethod, ModelLoader, factory pattern  |
+| Plik                                     | Temat                | Kluczowe pojęcia                                                 |
+| :--------------------------------------- | :------------------- | :--------------------------------------------------------------- |
+| **63_Diffusion_Models_DDPM.ipynb**       | Diffusion Models     | **DDPM**, Forward/Reverse Diffusion, matematyka Stable Diffusion |
+| **67_Contrastive_Learning_SimCLR.ipynb** | Contrastive Learning | **SimCLR**, uczenie kontrastowe, Self-Supervised Learning        |
+
+### 🕸️ Graph Neural Networks
+
+Dane w formie grafów i relacji.
+
+| Plik                                   | Temat                 | Kluczowe pojęcia                                                 |
+| :------------------------------------- | :-------------------- | :--------------------------------------------------------------- |
+| **58_Graph_Neural_Networks_GNN.ipynb** | Graph Neural Networks | **GNN**, Message Passing, macierze przyległości, sieci społeczne |
+
+### 🔍 Metric Learning & Similarity
+
+Uczenie odległości i podobieństwa.
+
+| Plik                                 | Temat            | Kluczowe pojęcia                                                  |
+| :----------------------------------- | :--------------- | :---------------------------------------------------------------- |
+| **57_Metric_Learning_Siamese.ipynb** | Siamese Networks | **Triplet Loss**, Metric Learning, FaceID, weryfikacja tożsamości |
+
+### 🔧 Vector Search & Optimization
+
+Efektywne wyszukiwanie w wysokich wymiarach.
+
+| Plik                                   | Temat              | Kluczowe pojęcia                                             |
+| :------------------------------------- | :----------------- | :----------------------------------------------------------- |
+| **65_HNSW_Vector_Search_Engine.ipynb** | Vector Search      | **HNSW**, Hierarchical Navigable Small World, bazy wektorowe |
+| **66_Kalman_Filter_Tracking.ipynb**    | Śledzenie Obiektów | **Kalman Filter**, filtracja predykcyjna, GPS, robotyka      |
+
+### 📈 MLOps & Production
+
+Monitoring i wdrożenia produkcyjne.
+
+| Plik                                         | Temat                  | Kluczowe pojęcia                                               |
+| :------------------------------------------- | :--------------------- | :------------------------------------------------------------- |
+| **25_Model_Persistence_Pickle_Joblib.ipynb** | Zapisywanie modeli     | **Pickle**, Joblib, serializacja obiektów                      |
+| **30_Sklearn_Pipelines.ipynb**               | Rurociągi ML           | **Pipeline**, StandardScaler, data leakage prevention          |
+| **31_Custom_Transformers.ipynb**             | Własne transformery    | **BaseEstimator**, TransformerMixin, fit-transform pattern     |
+| **28_Python_Dataclasses_for_ML.ipynb**       | Konfiguracja modeli    | **Dataclasses**, structured configs, TrainingArguments pattern |
+| **29_OOP_Classmethod_Staticmethod.ipynb**    | Wzorce projektowe      | **@classmethod**, @staticmethod, ModelLoader, factory pattern  |
+| **69_Data_Drift_Detection_PSI.ipynb**        | Monitoring Produkcyjny | **Data Drift**, KS-Test, PSI, wykrywanie zmian w danych        |
 
 ---
 
@@ -156,6 +200,7 @@ Projekt oparty na standardowym stacku Data Science:
 - **Matplotlib & Seaborn** (Wizualizacja danych)
 - **SciPy** (Testy statystyczne)
 - **PyTorch** (Deep Learning Framework)
+- **Optuna** (Bayesian Optimization)
 
 ## 🚀 Jak używać tego podręcznika?
 
@@ -202,6 +247,15 @@ Zalecane dla inżynierów budujących własne środowisko.
     ```
 
     _(Uwaga: Wersję `cu130` w linku PyTorcha możesz dostosować do sterowników swojej karty graficznej)._
+
+---
+
+## 📊 Statystyki Projektu
+
+- **70 notatników** pokrywających pełne spektrum AI/ML
+- **Od podstaw matematycznych** do produkcyjnych implementacji
+- **Ponad 20 kategorii tematycznych** (EDA, Classical ML, Deep Learning, LLM, Computer Vision, RL, MLOps)
+- **Implementacje referencyjne** algorytmów używanych w produkcji (Transformers, Diffusion, HNSW, Kalman, PPO)
 
 ---
 

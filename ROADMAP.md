@@ -505,3 +505,315 @@ Pełna ścieżka edukacyjna repozytorium AI-Engineering-Handbook. Każdy notatni
 **Dlaczego?** Szef pyta: "Dlaczego sprzedaż spadła?". Musisz wiedzieć, czy to trend (kryzys), czy sezonowość (koniec świąt).
 
 **Temat:** Dekompozycja STL. Rozbicie wykresu na trzy składniki: Trend, Sezonowość i Reszty (Szum/Anomalie).
+
+---
+
+## 63_Diffusion_Models_DDPM.ipynb – Matematyka Stable Diffusion
+
+**Dlaczego?** GANy (notatnik 41) są trudne w treningu. Dzisiaj króluje Dyfuzja.
+
+**Temat:** Zaimplementujemy od zera proces Forward Diffusion (dodawanie szumu do zdjęcia aż zniknie) i Reverse Diffusion (nauczenie sieci, jak "odszumiać" biały szum, żeby powstał obraz).
+
+---
+
+## 64_Knowledge_Distillation.ipynb – Nauczyciel i Uczeń
+
+**Dlaczego?** Kwantyzacja (notatnik 59) to nie jedyny sposób na małe modele. Możemy wziąć wielkiego modelu (Teacher) i kazać mu uczyć małego modelu (Student).
+
+**Temat:** Soft Labels i Temperature. Student nie uczy się tylko "To jest kot", ale uczy się od Nauczyciela, że "To jest kot, ale trochę przypomina psa".
+
+---
+
+## 65_HNSW_Vector_Database.ipynb – Silnik Baz Wektorowych
+
+**Dlaczego?** W RAG (notatnik 20) liczyliśmy cosinusy dla wszystkich par. To działa dla 10k plików. Dla 100 milionów potrzebujesz HNSW.
+
+**Temat:** Zbudujemy (uproszczoną) strukturę grafową, która pozwala znaleźć najbliższy wektor w czasie logarytmicznym, skacząc po "autostradach" między węzłami.
+
+---
+
+## 66_Kalman_Filter.ipynb – Śledzenie w czasie rzeczywistym
+
+**Dlaczego?** GPS w Twoim telefonie kłamie (ma błąd 5m). Jakim cudem nawigacja pokazuje Cię idealnie na drodze?
+
+**Temat:** Algorytm, który łączy Predykcję (gdzie powinieneś być wg fizyki) z Pomiarem (gdzie jesteś wg czujnika) i magicznie usuwa szum. Fundament robotyki.
+
+---
+
+## 67_Contrastive_Learning_SimCLR.ipynb – SimCLR / CLIP
+
+**Dlaczego?** Jak nauczyć sieć rozumieć obrazy bez etykiet?
+
+**Temat:** Uczenie kontrastowe. Bierzemy zdjęcie psa, robimy mu 2 różne filtry (obrót, kolor). Mówimy sieci: "Te dwa różne obrazy to to samo. Zbliż ich wektory do siebie".
+
+---
+
+## 68_PPO_RLHF.ipynb – Jak powstał ChatGPT?
+
+**Dlaczego?** Zwykły model językowy umie tylko dokończyć zdanie. Żeby był asystentem, musi przejść RLHF (Reinforcement Learning from Human Feedback).
+
+**Temat:** Zrozumienie mechanizmu PPO – jak nagradzać model językowy za dobre odpowiedzi, nie psując jego zdolności językowych (Kullback-Leibler penalty).
+
+---
+
+## 69_Data_Drift_Detection.ipynb – KS-Test & PSI
+
+**Dlaczego?** Wytrenowałeś model na danych z 2023. Jest 2025. Model działa źle. Dlaczego? Bo dane się zmieniły (Drift).
+
+**Temat:** Matematyczne wykrywanie, czy "świat się zmienił". Test Kolmogorova-Smirnova i Population Stability Index. Obowiązkowe w bankowości.
+
+---
+
+## 70_Vision_Transformers_ViT.ipynb – Koniec ery CNN?
+
+**Dlaczego?** CNN (sploty) patrzą lokalnie (okno 3x3). Transformery patrzą globalnie. Od 2021 roku ViT wypiera CNN w rozpoznawaniu obrazów.
+
+**Temat:** Jak pociąć zdjęcie na "słowa" (Patches), dodać im pozycję i wrzucić do Transformera, którego zbudowaliśmy w notatniku 46.
+
+---
+
+## 71_Flash_Attention_KV_Cache.ipynb – Jak działają szybkie LLM?
+
+**Dlaczego?** Zwykłe Attention ma złożoność O(N²). Dla długich tekstów pamięć GPU wybucha.
+
+**Temat:** Zrozumienie optymalizacji sprzętowej (Tiling) i mechanizmu Key-Value Cache (nie licz tego samego dwa razy), który pozwala ChatGPT odpisywać w czasie rzeczywistym.
+
+---
+
+## 72_Mamba_SSM.ipynb – State Space Models
+
+**Dlaczego?** Transformer zatyka się przy długich tekstach. Mamba ma złożoność liniową i pamięta nieskończenie długo.
+
+**Temat:** Architektura SSM. Dyskretyzacja równań różniczkowych w sieci neuronowej.
+
+---
+
+## 73_Mixture_of_Experts_MoE.ipynb – Architektura GPT-4
+
+**Dlaczego?** GPT-4 to nie jeden wielki model, ale "rada ekspertów".
+
+**Temat:** Budowa warstwy Gating Network (Routera), która decyduje, który mały model (Ekspert) ma obsłużyć dane zapytanie.
+
+---
+
+## 74_Liquid_Neural_Networks.ipynb – LFC
+
+**Dlaczego?** Sieci neuronowe są statyczne po treningu. Liquid Networks zmieniają swoje wagi w czasie rzeczywistym, adaptując się do otoczenia.
+
+**Temat:** Implementacja sieci opartej na równaniach różniczkowych, która działa świetnie w robotyce i dronach.
+
+---
+
+## 75_Meta_Learning_MAML.ipynb – Model-Agnostic Meta-Learning
+
+**Dlaczego?** Człowiek uczy się po jednym przykładzie. Sieć potrzebuje tysięcy.
+
+**Temat:** Model-Agnostic Meta-Learning. Trenowanie sieci tak, aby jej wagi były "łatwe do szybkiego douczenia" na nowym zadaniu w 5 krokach.
+
+---
+
+## 76_LangChain_ReAct.ipynb – Reason + Act
+
+**Dlaczego?** Model językowy nie ma dostępu do kalkulatora ani Google.
+
+**Temat:** Budowa pętli Agenta: Myśl -> Wybierz Narzędzie -> Wykonaj Akcję -> Obserwuj Wynik -> Odpowiedz.
+
+---
+
+## 77_Prompt_Engineering_CoT.ipynb – Chain of Thought
+
+**Dlaczego?** Proste pytanie "Ile to 23\*45?" często myli model.
+
+**Temat:** Implementacja CoT i Tree of Thoughts. Wymuszanie na modelu "myślenia na głos" przed podaniem odpowiedzi.
+
+---
+
+## 78_RAG_Evaluation_RAGAS.ipynb – RAGAS
+
+**Dlaczego?** Zbudowałeś RAG (notatnik 20). Skąd wiesz, czy jest dobry?
+
+**Temat:** Metryki: Faithfulness (czy odpowiedź wynika z kontekstu?) i Answer Relevance (czy odpowiada na pytanie?).
+
+---
+
+## 79_Product_Quantization_IVF_PQ.ipynb – Vector Database
+
+**Dlaczego?** HNSW (notatnik 65) jest szybkie, ale żre RAM.
+
+**Temat:** Kompresja wektorów (Product Quantization). Jak zmieścić miliard wektorów w pamięci, tracąc minimalnie na precyzji (technologia FAISS).
+
+---
+
+## 80_Speculative_Decoding.ipynb – Speculative Decoding
+
+**Dlaczego?** Wielki model jest wolny. Mały model jest szybki, ale głupi.
+
+**Temat:** Użycie małego modelu do "zgadywania" 5 kolejnych słów, a dużego tylko do ich "zatwierdzania". Przyspieszenie generowania tekstu 2-3x.
+
+---
+
+## 81_Audio_Mel_Spectrograms.ipynb – Spektrogramy Melowe
+
+**Dlaczego?** Surowe audio to chaos. Modele (Whisper) "patrzą" na dźwięk.
+
+**Temat:** Zamiana audio na Mel-Spectrogram (skala logarytmiczna, dopasowana do ucha ludzkiego).
+
+---
+
+## 82_ASR_CTC_Loss.ipynb – Connectionist Temporal Classification
+
+**Dlaczego?** Plik audio trwa 5 sekund, tekst ma 10 liter. Jak to zmapować bez wyrównywania?
+
+**Temat:** Matematyka CTC. Algorytm, który pozwala sieci "pluć" literami w odpowiednich momentach i usuwać duplikaty ("heeeelllo" -> "hello").
+
+---
+
+## 83_Text_to_Speech_Tacotron.ipynb – Tacotron Concept
+
+**Dlaczego?** Chcesz, żeby AI do Ciebie mówiło.
+
+**Temat:** Architektura Encoder-Decoder z mechanizmem Attention, która zamienia litery na spektrogramy audio.
+
+---
+
+## 84_CLIP_Multimodal.ipynb – Contrastive Language-Image Pretraining
+
+**Dlaczego?** Jak połączyć tekst z obrazem? (Podstawa DALL-E).
+
+**Temat:** Trening modelu, który umie powiedzieć, jak bardzo zdjęcie psa pasuje do podpisu "Pies na plaży".
+
+---
+
+## 85_NeRF_Neural_Radiance_Fields.ipynb – Neural Radiance Fields
+
+**Dlaczego?** Jak z 5 zdjęć 2D zrobić model 3D?
+
+**Temat:** Reprezentacja sceny jako funkcji F(x,y,z)→(Kolor,Gęstość). Ray Marching (strzelanie promieniami przez piksele).
+
+---
+
+## 86_PointNet_Point_Clouds.ipynb – Chmury Punktów
+
+**Dlaczego?** Lidary w samochodach autonomicznych widzą chmury punktów, a nie zdjęcia.
+
+**Temat:** Architektura, która przetwarza zbiór punktów 3D (niezależnie od ich kolejności) i klasyfikuje obiekt (np. "To jest krzesło").
+
+---
+
+## 87_Graph_Attention_Networks_GAT.ipynb – Graph Attention Networks
+
+**Dlaczego?** Zwykły GCN (notatnik 58) traktuje wszystkich sąsiadów tak samo.
+
+**Temat:** Dodanie mechanizmu Attention do grafów. Węzeł sam decyduje, który sąsiad jest ważny.
+
+---
+
+## 88_Temporal_Fusion_Transformer_TFT.ipynb – TFT
+
+**Dlaczego?** LSTM jest stary. TFT to obecny SOTA w prognozowaniu (np. zapotrzebowania na prąd).
+
+**Temat:** Transformer, który obsługuje wiele horyzontów czasowych i zmienne statyczne (np. lokalizacja sklepu) oraz dynamiczne (pogoda).
+
+---
+
+## 89_NeuralProphet.ipynb – NeuralProphet
+
+**Dlaczego?** Prophet od Facebooka jest super, ale wolny.
+
+**Temat:** Hybryda klasycznej dekompozycji (Trend/Sezon) z sieciami neuronowymi w PyTorch.
+
+---
+
+## 90_Isolation_Forest.ipynb – Isolation Forest
+
+**Dlaczego?** Autoenkoder (notatnik 40) jest super, ale czasem potrzebujesz szybkiego algorytmu drzewiastego do anomalii.
+
+**Temat:** Algorytm, który próbuje "odizolować" punkt losowymi cięciami. Im szybciej się to uda, tym bardziej punkt jest podejrzany (anomalia).
+
+---
+
+## 91_LIME.ipynb – Local Interpretable Model-agnostic Explanations
+
+**Dlaczego?** SHAP jest dokładny, ale wolny.
+
+**Temat:** Jak wyjaśnić decyzję skomplikowanego modelu, trenując wokół jednej próbki mały, prosty model liniowy.
+
+---
+
+## 92_Counterfactual_Explanations.ipynb – Counterfactual Explanations
+
+**Dlaczego?** Klient pyta: "Co muszę zmienić, żeby dostać kredyt?".
+
+**Temat:** Generowanie alternatywnych scenariuszy: "Gdybyś zarabiał 500 zł więcej, dostałbyś kredyt".
+
+---
+
+## 93_Fairness_Bias_Detection.ipynb – Fairness & Bias Detection
+
+**Dlaczego?** Twój model może dyskryminować.
+
+**Temat:** Metryki sprawiedliwości (Disparate Impact, Equal Opportunity). Sprawdzanie, czy model traktuje tak samo różne grupy społeczne.
+
+---
+
+## 94_Causal_Inference.ipynb – Do-Calculus
+
+**Dlaczego?** Korelacja to nie przyczynowość. Czy reklama zwiększyła sprzedaż, czy po prostu były święta?
+
+**Temat:** Drabina Pearla. Odróżnianie obserwacji P(Y∣X) od interwencji.
+
+---
+
+## 95_Model_Pruning.ipynb – Przycinanie
+
+**Dlaczego?** Wiele wag w sieci jest bliskich zeru. Są niepotrzebne.
+
+**Temat:** Zerowanie najsłabszych połączeń w sieci neuronowej i dotrenowanie reszty. Odchudzanie modelu o 50-90%.
+
+---
+
+## 96_ONNX_Runtime.ipynb – ONNX Runtime
+
+**Dlaczego?** PyTorch jest świetny do treningu, ale ciężki na produkcji.
+
+**Temat:** Eksport modelu do formatu ONNX (Open Neural Network Exchange), który działa na wszystkim (od serwera po przeglądarkę).
+
+---
+
+## 97_Federated_Learning.ipynb – Federated Learning
+
+**Dlaczego?** Dane (np. medyczne) nie mogą opuścić telefonu pacjenta.
+
+**Temat:** Trenowanie modelu na tysiącach urządzeń lokalnie i przesyłanie do serwera tylko aktualizacji wag (a nie danych).
+
+---
+
+## 98_Adversarial_Attacks_FGSM.ipynb – FGSM
+
+**Dlaczego?** Jak oszukać sieć, zmieniając jeden piksel?
+
+**Temat:** Fast Gradient Sign Method. Generowanie szumu, który jest niewidoczny dla oka, a sprawia, że AI widzi banana zamiast pistoletu.
+
+---
+
+## 99_Neural_Architecture_Search_NAS.ipynb – NAS
+
+**Dlaczego?** Po co projektować sieć ręcznie, skoro AI może zaprojektować AI?
+
+**Temat:** Prosty algorytm, który sam buduje architekturę sieci (dobiera liczbę warstw i filtrów) metodą ewolucyjną.
+
+---
+
+## 100_World_Models.ipynb – Model-Based RL
+
+**Dlaczego?** Agent RL (DQN) uczy się wolno, bo musi "przeżyć" grę.
+
+**Temat:** Agent, który najpierw uczy się "modelu świata" (jak działa fizyka), a potem "śni" (symuluje) w głowie przyszłość, żeby podjąć decyzję.
+
+---
+
+## 101_MLOps_Platform.ipynb – The Grand Finale: End-to-End MLOps Platform
+
+**Dlaczego?** Zwieńczenie wszystkiego.
+
+**Temat:** Projekt spinający wiedzę: Trening modelu -> Wersjonowanie (MLflow/DVC concept) -> Testy (PyTest) -> Serwowanie (FastAPI) -> Monitoring (Drift). (W formie kodu Python, symulacja całej platformy).
