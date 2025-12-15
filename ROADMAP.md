@@ -812,8 +812,8 @@ Pełna ścieżka edukacyjna repozytorium AI-Engineering-Handbook. Każdy notatni
 
 ---
 
-## 101_MLOps_Platform.ipynb – The Grand Finale: End-to-End MLOps Platform
+## 101_KAN_Kolmogorov_Arnold_Networks.ipynb – The Grand Finale: KAN
 
-**Dlaczego?** Zwieńczenie wszystkiego.
+**Dlaczego?** Przez 70 lat fundamentem AI był MLP (stała funkcja aktywacji w neuronie, wagi na krawędziach). W 2024 roku KAN odwrócił to do góry nogami: brak wag, uczymy się funkcji (krzywych) na krawędziach. To "Nowa Fizyka AI".
 
-**Temat:** Projekt spinający wiedzę: Trening modelu -> Wersjonowanie (MLflow/DVC concept) -> Testy (PyTest) -> Serwowanie (FastAPI) -> Monitoring (Drift). (W formie kodu Python, symulacja całej platformy).
+**Temat:** Implementacja sieci Kołmogorowa-Arnolda od zera w PyTorch. Matematyka B-Splines (krzywych sklejanych) i budowa warstwy KANLayer, która jest dokładniejsza i bardziej interpretowalna niż klasyczne sieci.
