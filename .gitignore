@@ -24,3 +24,5 @@ __pycache__/
 # Inne
 data/
 ROADMAP_DEV.md
+fix_names.py
+add_colab_badge.py
