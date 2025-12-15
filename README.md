@@ -9,13 +9,17 @@ Ten projekt służy jako **referencja techniczna** oraz baza wiedzy demonstrują
 ### 🔑 Kluczowe Implementacje (Od Zera)
 
 - **Architektura LLM:** Pełna implementacja Bloku Transformera (Self-Attention, LayerNorm, Residuals) w PyTorch + Positional Encoding + Flash Attention & KV Cache.
-- **Optymalizacja:** Matematyczna implementacja LoRA (Low-Rank Adaptation) do fine-tuningu + Kwantyzacja (FP32 → INT8) + Product Quantization dla baz wektorowych.
+- **Optymalizacja:** Matematyczna implementacja LoRA (Low-Rank Adaptation) do fine-tuningu + Kwantyzacja (FP32 → INT8) + Product Quantization dla baz wektorowych + Model Pruning.
 - **Generative AI:** Sieci GAN, VAE (z wykorzystaniem Reparameterization Trick) oraz Diffusion Models (DDPM).
 - **Computer Vision:** Ręczna implementacja mechanizmów IoU (Intersection over Union), NMS (Non-Max Suppression) oraz Vision Transformers (ViT).
-- **ML Ops:** Niestandardowe Estymatory (Custom Estimators) i Pipeline'y Scikit-Learn do produkcyjnego przetwarzania danych.
-- **Advanced ML:** Metric Learning (Siamese Networks), Graph Neural Networks, Contrastive Learning, Data Drift Detection.
+- **ML Ops:** Niestandardowe Estymatory (Custom Estimators) i Pipeline'y Scikit-Learn do produkcyjnego przetwarzania danych + ONNX Runtime + Federated Learning.
+- **Advanced ML:** Metric Learning (Siamese Networks), Graph Neural Networks (GNN, GAT), Contrastive Learning, Data Drift Detection.
 - **Agenci AI:** LangChain ReAct, Prompt Engineering (CoT/ToT), RAG Evaluation, Speculative Decoding.
-- **Next-Gen Architectures:** Mamba (State Space Models), Mixture of Experts (MoE), Liquid Neural Networks, Meta-Learning (MAML).
+- **Next-Gen Architectures:** Mamba (State Space Models), Mixture of Experts (MoE), Liquid Neural Networks, Meta-Learning (MAML), **Kolmogorov-Arnold Networks (KAN)**.
+- **Audio & Multimodal:** Mel Spectrograms, CTC Loss dla ASR, Tacotron (TTS), CLIP (tekst+obraz).
+- **3D & Geometric:** NeRF (Neural Radiance Fields), PointNet (chmury punktów 3D), Graph Attention Networks.
+- **Explainability & Trust:** LIME, Counterfactual Explanations, Fairness Detection, Causal Inference.
+- **Security & Optimization:** Adversarial Attacks (FGSM), Neural Architecture Search (NAS), World Models (Model-Based RL).
 
 ---
 
@@ -102,6 +106,69 @@ Nowoczesne architektury i techniki optymalizacji dla produkcyjnych systemów AI.
 | **73_Mixture_of_Experts_MoE.ipynb**     | Mixture of Experts         | **MoE**, Gating Network, Router, architektura GPT-4, sparse models         |
 | **74_Liquid_Neural_Networks_LFC.ipynb** | Liquid Neural Networks     | **LFC**, adaptive weights, równania różniczkowe, robotyka, drony           |
 | **75_Meta_Learning_MAML.ipynb**         | Meta-Learning              | **MAML**, Model-Agnostic Meta-Learning, few-shot learning, fast adaptation |
+
+### 🎙️ Audio & Multimodal AI
+
+Przetwarzanie dźwięku, mowy i multimodalne połączenie tekstu z obrazem.
+
+| Plik                                 | Temat                        | Kluczowe pojęcia                                                                 |
+| :----------------------------------- | :--------------------------- | :------------------------------------------------------------------------------- |
+| **81_Audio_Mel_Spectrograms.ipynb**  | Spektrogramy Audio           | **Mel-Spectrogram**, MFCC, skala logarytmiczna, reprezentacja audio              |
+| **82_Audio_ASR_CTC_Loss.ipynb**      | Automatic Speech Recognition | **CTC Loss**, ASR, wyrównanie audio-tekst, Connectionist Temporal Classification |
+| **83_Text_to_Speech_Tacotron.ipynb** | Synteza Mowy                 | **Tacotron**, Text-to-Speech, Encoder-Decoder, generowanie audio                 |
+| **84_CLIP_Multimodal.ipynb**         | Modele Multimodalne          | **CLIP**, Contrastive Learning, tekst+obraz, DALL-E foundation                   |
+
+### 🧊 3D & Geometric Deep Learning
+
+Uczenie maszynowe w przestrzeni trójwymiarowej.
+
+| Plik                                      | Temat                    | Kluczowe pojęcia                                                      |
+| :---------------------------------------- | :----------------------- | :-------------------------------------------------------------------- |
+| **85_NeRF_Neural_Radiance_Fields.ipynb**  | Neural Radiance Fields   | **NeRF**, 3D reconstruction, Ray Marching, volumetric rendering       |
+| **86_PointNet_3D_PointCloud.ipynb**       | Chmury Punktów 3D        | **PointNet**, point clouds, Lidar, permutation invariance, 3D objects |
+| **87_Graph_Attention_Networks_GAT.ipynb** | Graph Attention Networks | **GAT**, attention na grafach, weighted neighbors, message passing    |
+
+### ⏱️ Zaawansowane Szeregi Czasowe
+
+Prognozowanie i analiza danych czasowych.
+
+| Plik                                            | Temat                       | Kluczowe pojęcia                                                  |
+| :---------------------------------------------- | :-------------------------- | :---------------------------------------------------------------- |
+| **88_Temporal_Fusion_Transformer_TFT.ipynb**    | Temporal Fusion Transformer | **TFT**, multi-horizon forecasting, variable selection, attention |
+| **89_NeuralProphet_Hybrid_Time_Series.ipynb**   | Hybrid Time Series Models   | **NeuralProphet**, trend+seasonality, PyTorch implementation      |
+| **90_Isolation_Forest_Anomaly_Detection.ipynb** | Detekcja Anomalii           | **Isolation Forest**, tree-based anomaly detection, outliers      |
+
+### 🛡️ Trustworthy AI & Explainability (XAI)
+
+Wyjaśnialność, uczciwość i bezpieczeństwo modeli AI.
+
+| Plik                                      | Temat                       | Kluczowe pojęcia                                                |
+| :---------------------------------------- | :-------------------------- | :-------------------------------------------------------------- |
+| **91_LIME_Model_Explainability.ipynb**    | LIME Explainability         | **LIME**, Local Interpretable Model-agnostic, surrogate models  |
+| **92_Counterfactual_Explanations.ipynb**  | Counterfactual Explanations | **Counterfactuals**, "co by było gdyby", actionable insights    |
+| **93_Fairness_and_Bias_Detection.ipynb**  | Fairness & Bias             | **Fairness metrics**, Disparate Impact, Equal Opportunity, bias |
+| **94_Causal_Inference_Do_Calculus.ipynb** | Causal Inference            | **Do-Calculus**, Pearl's Ladder, korelacja vs przyczynowość     |
+
+### 🚀 Deployment & Production Optimization
+
+Optymalizacja i wdrażanie modeli na produkcję.
+
+| Plik                                        | Temat                      | Kluczowe pojęcia                                                    |
+| :------------------------------------------ | :------------------------- | :------------------------------------------------------------------ |
+| **95_Model_Pruning_Optimization.ipynb**     | Model Pruning              | **Pruning**, weight reduction, compression, 50-90% size reduction   |
+| **96_ONNX_Runtime_Deployment.ipynb**        | ONNX Deployment            | **ONNX**, cross-platform deployment, runtime optimization           |
+| **97_Federated_Learning_Simulation.ipynb**  | Federated Learning         | **Federated Learning**, privacy-preserving, distributed training    |
+| **98_Adversarial_Attacks_FGSM.ipynb**       | Adversarial Attacks        | **FGSM**, adversarial examples, robustness, security                |
+| **99_Neural_Architecture_Search_NAS.ipynb** | Neural Architecture Search | **NAS**, AutoML, evolutionary algorithms, architecture optimization |
+
+### 🎮 Advanced Reinforcement Learning & Novel Architectures
+
+Zaawansowane RL i przełomowe architektury 2024/2025.
+
+| Plik                                         | Temat                      | Kluczowe pojęcia                                                                      |
+| :------------------------------------------- | :------------------------- | :------------------------------------------------------------------------------------ |
+| **100_World_Models_Model_Based_RL.ipynb**    | World Models               | **Model-Based RL**, world simulation, dreaming, planning                              |
+| **101_KAN_Kolmogorov_Arnold_Networks.ipynb** | Kolmogorov-Arnold Networks | **KAN**, learnable activation functions, alternative to MLP, mathematical foundations |
 
 ### 🤖 Agenci AI i LLM Engineering
 
@@ -243,6 +310,7 @@ Najszybszy sposób na naukę. Każdy notatnik w tym repozytorium posiada przycis
 ### 💻 Opcja 2: Lokalnie (VS Code + uv)
 
 Zalecane dla inżynierów budujących własne środowisko.
+_Wymaganie wstępne: Zainstaluj [uv](https://github.com/astral-sh/uv) (`pip install uv`)._
 
 1.  **Sklonuj repozytorium:**
 
@@ -251,38 +319,42 @@ Zalecane dla inżynierów budujących własne środowisko.
     cd ai-engineering-handbook
     ```
 
-2.  **Stwórz i aktywuj środowisko wirtualne:**
+2.  **Zainstaluj zależności za pomocą uv:**
 
     ```bash
-    uv venv
+    # Tworzy venv i instaluje wszystkie biblioteki z uv.lock
+    uv sync
+    ```
 
+    Środowisko zostanie automatycznie skonfigurowane z dokładnymi wersjami bibliotek (PyTorch z CUDA, Scikit-Learn, Transformers itp.), co gwarantuje powtarzalność wyników.
+
+3.  **Aktywuj środowisko:**
+
+    ```bash
     # Windows:
     .\.venv\Scripts\activate
     # Linux/Mac:
     source .venv/bin/activate
     ```
 
-3.  **Zainstaluj zależności (PyTorch + ML Stack):**
+4.  **Uruchom Jupyter Notebook:**
 
     ```bash
-    # 1. PyTorch (Wersja z obsługą CUDA: najnowsza stabilna (12.12.2025) jest cu130)
-    uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
-
-    # 2. Reszta narzędzi (Pandas, Scikit-Learn, SHAP, etc.)
-    uv pip install numpy pandas matplotlib seaborn scikit-learn scipy statsmodels shap xgboost mlxtend gym gymnasium notebook ipykernel networkx optuna ipywidgets plotly
+    jupyter notebook
     ```
 
-    _(Uwaga: Wersję `cu130` w linku PyTorcha możesz dostosować do sterowników swojej karty graficznej)._
+    _(Wskazówka: Jeśli używasz VS Code, po prostu otwórz plik `.ipynb` i wybierz kernel `.venv` w prawym górnym rogu)._
 
 ---
 
 ## 📊 Statystyki Projektu
 
-- **80 notatników** pokrywających pełne spektrum AI/ML
+- **101 notatników** pokrywających pełne spektrum AI/ML
 - **Od podstaw matematycznych** do produkcyjnych implementacji
-- **Ponad 25 kategorii tematycznych** (EDA, Classical ML, Deep Learning, LLM, Computer Vision, RL, Agenci AI, MLOps)
-- **Implementacje referencyjne** algorytmów używanych w produkcji (Transformers, Diffusion, HNSW, Kalman, PPO, Mamba, MoE)
-- **Najnowsze architektury 2024/2025:** Flash Attention, Mamba SSM, Mixture of Experts, Liquid Networks, Meta-Learning
+- **Ponad 30 kategorii tematycznych** (EDA, Classical ML, Deep Learning, LLM, Computer Vision, RL, Agenci AI, Audio/Multimodal, 3D, XAI, MLOps)
+- **Implementacje referencyjne** algorytmów używanych w produkcji (Transformers, Diffusion, HNSW, Kalman, PPO, Mamba, MoE, NeRF, CLIP, KAN)
+- **Najnowsze architektury 2024/2025:** Flash Attention, Mamba SSM, Mixture of Experts, Liquid Networks, Meta-Learning, NeRF, Temporal Fusion Transformer, Kolmogorov-Arnold Networks
+- **Pełne spektrum zastosowań:** Audio/Speech (ASR, TTS), 3D (NeRF, PointNet), Multimodal (CLIP), Explainability (LIME, Counterfactuals), Production (ONNX, Pruning, Federated Learning), Novel Architectures (KAN)
 
 ---
 
