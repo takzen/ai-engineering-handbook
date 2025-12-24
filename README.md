@@ -347,6 +347,31 @@ _Wymaganie wstępne: Zainstaluj [uv](https://github.com/astral-sh/uv) (`pip inst
 
 ---
 
+### ⚙️ Dostosowanie wersji CUDA (Rozwiązywanie problemów)
+
+Domyślna konfiguracja projektu (`uv.lock`) wymusza instalację PyTorch z obsługą **CUDA 13.0**. Jeśli posiadasz starszą kartę graficzną lub chcesz uruchomić projekt na samym CPU (np. macOS), musisz nadpisać te ustawienia.
+
+**Jak zmienić wersję?**
+
+1.  Otwórz plik `pyproject.toml`.
+2.  W sekcjach `[[tool.uv.index]]` oraz `[tool.uv.sources]` zamień końcówkę adresu URL oraz nazwę indeksu na wybraną wersję (np. `cu126`):
+
+    | Wersja                   | URL Indeksu (`url`)                      | Wymagany sterownik NVIDIA |
+    | :----------------------- | :--------------------------------------- | :------------------------ |
+    | **CUDA 13.0** (Domyślny) | `https://download.pytorch.org/whl/cu130` | **≥ 575.xx**              |
+    | **CUDA 12.6** (Stabilny) | `https://download.pytorch.org/whl/cu126` | ≥ 560.xx                  |
+    | **CUDA 12.4** (Legacy)   | `https://download.pytorch.org/whl/cu124` | ≥ 550.xx                  |
+    | **CPU** (Brak GPU/Mac)   | `https://download.pytorch.org/whl/cpu`   | Brak                      |
+
+3.  Zaktualizuj środowisko:
+
+    ```bash
+    # uv wykryje zmianę w pliku konfiguracyjnym i przebuduje uv.lock
+    uv sync
+    ```
+
+---
+
 ## 📊 Statystyki Projektu
 
 - **101 notatników** pokrywających pełne spektrum AI/ML
