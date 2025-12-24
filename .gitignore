@@ -26,3 +26,4 @@ data/
 ROADMAP_DEV.md
 fix_names.py
 add_colab_badge.py
+add_badges.py
